@@ -1,0 +1,28 @@
+{
+  "name": "crestron-control4-ui",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Zenith-style touch-panel UI for Crestron CH5 panels and Home Assistant",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run build:crestron && npm run build:ha",
+    "build:crestron": "vite build --mode crestron",
+    "build:ha": "vite build --mode ha",
+    "archive": "npm run build:crestron && ch5-cli archive -p ZenithUI -d dist/crestron -o archives"
+  },
+  "dependencies": {
+    "@crestron/ch5-crcomlib": "^2.20.0",
+    "@crestron/ch5-webxpanel": "^2.8.0",
+    "lit": "3.3.3"
+  },
+  "devDependencies": {
+    "@crestron/ch5-utilities-cli": "2.19.0",
+    "playwright-core": "^1.56.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.8",
+    "vitest": "4.1.12"
+  }
+}
